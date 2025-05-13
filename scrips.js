@@ -103,3 +103,45 @@ document.getElementById("json-upload").addEventListener("change", async (evento)
     };
 });
 
+const inputTags = document.getElementById("input-tags");
+const listaTags = document.getElementById("lista-tags");
+
+listaTags.addEventListener("click", (evento) => {
+    if (evento.target.classList.contains("remove-tag")) {
+        const tagRemovida = evento.target.parentElement;
+        listaTags.removeChild(tagRemovida);
+    };
+});
+
+const tagsDisponiveis = [
+    "Gato",
+    "Cachorro",
+    "Passaro",
+    "Tartaruga",
+    "Peixe",
+    "Porco"
+];
+
+async function verificaTagsDisponiveis(tagTexto) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(tagsDisponiveis.includes(tagTexto));
+        }, 1000);
+    });
+};
+
+inputTags.addEventListener("keypress", (evento) => {
+    if (evento.key === "Enter") {
+        evento.preventDefault();
+        const tagTexto = inputTags.value.trim();
+            if (tagTexto !== "" && tagsDisponiveis.includes(tagTexto)) {
+                const tagNova = document.createElement("li");
+                tagNova.innerHTML = `${tagTexto} <img src="img/close.svg" class="remove-tag">`;
+                listaTags.appendChild(tagNova);
+                inputTags.value = "";
+            } else {
+                alert("Tag inválida");
+            };
+        };    
+    });
+

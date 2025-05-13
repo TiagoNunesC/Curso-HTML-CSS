@@ -207,7 +207,7 @@ textarea {
 }
 
 .container-upload-imagem button {
-    margin: 16px 0 8px 0;
+    margin: 16px 0 1px 0;
     background-color: var(--itens-background);
     border: 1px solid var(--secondary-color);
     border-radius: 8px;
@@ -241,6 +241,26 @@ textarea {
     color: var(--secondary-color);
     font-size: 15px;
 }
+
+.custom-file-input {
+   display: none; 
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 5px 8px;
+    cursor: pointer;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    background-color: var(--itens-background);
+    color: var(--secondary-color); 
+    font-weight: var(--font-family); 
+    transition: background-color 0.3s, border-color 0.3s;
+    margin-top: 20px;
+}
+
+
+
 
 
 
